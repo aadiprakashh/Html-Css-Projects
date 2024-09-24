@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>| Order |</title>
+  <link rel="stylesheet" href="buy.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+</head>
+
+<body>
+  <div class="main">
+    <div id="menubar">
+      <img src="image/logo.png" alt="" id="logo" />
+      <div id="menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <!-- <a href="product.html">Product</a>
+          <a href="category.html">Category</a> -->
+        <a href="FAQ's.html">FAQ's</a>
+      </div>
+      <!-- <input type="search" id="search" placeholder="Search entirely" /> -->
+      <div class="cart">
+        <div class="number">0</div>
+        <a href="buy.html"><img src="image/cart.png" alt="" /></a>
+        <a href="login.html"><img src="image/user.png" alt="" /></a>
+      </div>
+    </div>
+    <a href="single-product.html" id="back">Back to Product</a>
+    <h1>CheckOut</h1>
+    <div class="container">
+      <div class="box">
+        <div class="adrs">
+          <h2>1. Contact Info</h2>
+          <form action="">
+            <input type="text" placeholder="First-Name">
+            <input type="text" placeholder="Last-Name">
+            <input type="number" placeholder="Mobile">
+            <input type="email" placeholder="Email">
+          </form>
+        </div>
+        <div class="way">
+          <h2>2. Delivery Method</h2>
+          <div id="meth">
+            <p>Morning</p>
+            <p>Noon</p>
+            <p>Evening</p>
+            <p>Normal</p>
+          </div>
+        </div>
+        <div class="pay">
+          <h2>3. Payment Method</h2>
+          <div id="meth">
+            <p>Phone Pe</p>
+            <p>Paytm</p>
+            <p>Gpay</p>
+            <p>C.O.D (Cash on Delivery)</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="place">
+        <div>
+          <h3>Shipping</h3>
+        <span class="sub">Your order is on its way!</span>
+        </div>
+        <div class="tot">
+          <p>Subtotal</p>
+          <b id="price"></b>
+        </div>
+        <div class="tot">
+          <p>Discount</p>
+          <b>- ₹<span id="discount">55.00</span> (%10)</b>
+        </div>
+        <div class="tot">
+          <p>Delivery Charge</p>
+          <b id="del-charge">₹ 0.00 (Free)</b>
+        </div>
+        <div class="tot" style="border-top: 2px solid grey;">
+          <p style="color: red; font-weight: 800;">Total:
+          <div id="total"></div>
+          </p>
+        </div>
+
+        <button id="pay">Place Order</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const total = localStorage.getItem('total');
+    if (total) {
+      document.getElementById('price').innerText = `₹ ${parseFloat(total).toFixed(2)}`;
+    }
+    // const discount = parseFloat(document.getElementById('discount').value);
+    // const discount = $("#discount").val();
+    const value = total - 55;
+    const totalPrice = document.getElementById('total').innerHTML = `₹ ${parseFloat(value).toFixed(2)}`;
+
+  });
+</script>
+</html>

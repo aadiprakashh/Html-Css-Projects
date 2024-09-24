@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="single-product.css">
+</head>
+<body>
+    <div id="main">
+        <div id="menubar">
+            <img src="image/logo.png" alt="" id="logo">
+            <div class="cart">
+                <div class="number">0</div>
+                <a href="buy.html"><img src="image/cart.png" alt="" /></a>
+                <a href="login.html"><img src="image/user.png" alt="" /></a>
+              </div>
+        </div>
+        <div id="cart">
+            <h1>Cart Items</h1>
+            <div id="items-list"></div>
+        </div>
+    </div>
+</body>
+<script src="jquery-3.7.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Get the cart items from local storage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Display the cart items
+    let itemsList = $('#items-list');
+    if(cart.length === 0) {
+        itemsList.append('<p>No items in cart</p>');
+    } else {
+        cart.forEach(item => {
+            itemsList.append(`
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h2>${item.name}</h2>
+                        <p>Price: ₹${item.price}</p>
+
+                    </div>
+                </div>
+            `);
+        });
+    }
+});
+</script>
+</html>

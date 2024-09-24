@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+</head>
+
+<body>
+    <div id="shop">
+        <div id="menubar">
+            <img src="image/logo.png" alt="" id="logo" />
+            <div id="menu">
+                <a href="index.html">Home</a>
+                <a href="shop.html" class="active">Shop</a>
+                <!-- <a href="product.html">Product</a>
+                <a href="category.html">Category</a> -->
+                <a href="FAQ's.html">FAQ's</a>
+            </div>
+            <input type="search" id="search" placeholder="Search entirely" />
+            <div class="cart">
+                <div class="number">0</div>
+                <a href="buy.html"><img src="image/cart.png" alt="" /></a>
+                <a href="login.html"><img src="image/user.png" alt="" /></a>
+              </div>
+        </div>
+
+        <div id="sidebar">
+            <section id="category">
+                <div id="submenu">
+                    <a href="" id="active">Clothing</a>
+                    <a href="">Footwear</a>
+                    <a href="">Accessories</a>
+                    <a href="">Grooming</a>
+                    <a href="">Fitness Guide</a>
+                </div>
+
+                <div id="shop-main">
+                    <aside id="sidebar">
+                        <h4>FILTER BY</h4>
+                        <div id="box">
+                            <p>Price</p>
+                            <input type="range" min="50" max="550" value="" id="range" />
+                        </div>
+                        <div id="box">
+                            <p>Size</p>
+                            <div id="sub2">
+                                <input type="checkbox" name="size" id="size" value="S" /><span>S</span><br />
+                                <input type="checkbox" name="size" id="size" value="M" /><span>M</span><br />
+                                <input type="checkbox" name="size" id="size" value="L" /><span>L</span><br />
+                                <input type="checkbox" name="size" id="size" value="X" /><span>X</span><br />
+                                <input type="checkbox" name="size" id="size" value="XL" /><span>XL</span><br />
+                            </div>
+                        </div>
+                        <div id="box">
+                            <p>Rating</p>
+                            <div id="sub3">
+                                <input type="radio" name="rating" id="rating" value="4" /><span>4 & Above</span><br />
+                                <input type="radio" name="rating" id="rating" value="3" /><span>3 & Above</span><br />
+                                <input type="radio" name="rating" id="rating" value="2" /><span>2 & Above</span><br />
+                                <input type="radio" name="rating" id="rating" value="1" /><span>1 & Above</span><br />
+                            </div>
+                        </div>
+                        <div id="box">
+                            <p>Brand</p>
+                            <div id="sub4">
+                                <input type="checkbox" name="brand" id="brand"
+                                    value="Myntra" /><span>Myntra</span><br />
+                                <input type="checkbox" name="brand" id="brand" value="Nykaa" /><span>Nykaa</span><br />
+                                <input type="checkbox" name="brand" id="brand" value="Denim" /><span>Denim</span><br />
+                                <input type="checkbox" name="brand" id="brand"
+                                    value="Levi's" /><span>Levi's</span><br />
+                                <input type="checkbox" name="brand" id="brand"
+                                    value="Adidas" /><span>Adidas</span><br />
+                            </div>
+                        </div>
+                    </aside>
+
+                    <form id="product-list" action="">
+                        <div id="list">
+                            <img src="image/hoodie.jpg" alt="" id="image" />
+                            <span>
+                                <h4 id="price">₹550/-</h4>
+                                <img src="image/wish.png" alt="" />
+                            </span>
+
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            <button type="submit" id="quick-view-btn">
+                                <a href="single-product.html">Quick View</a>
+                            </button>
+                        </div>
+                        <div id="list">
+                            <img src="image/hoodie.jpg" alt="" id="image" />
+                            <span>
+                                <h4 id="price">₹550/-</h4>
+                                <img src="image/wish.png" alt="" />
+                            </span>
+
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            <button type="submit" id="quick-view-btn">
+                                <a href="single-product.html">Quick View</a>
+                            </button>
+                        </div>
+                        <div id="list">
+                            <img src="image/hoodie.jpg" alt="" id="image" />
+                            <span>
+                                <h4 id="price">₹550/-</h4>
+                                <img src="image/wish.png" alt="" />
+                            </span>
+
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            <button type="submit" id="quick-view-btn">
+                                <a href="single-product.html">Quick View</a>
+                            </button>
+                        </div>
+                        <div id="list">
+                            <img src="image/hoodie.jpg" alt="" id="image" />
+                            <span>
+                                <h4 id="price">₹550/-</h4>
+                                <img src="image/wish.png" alt="" />
+                            </span>
+
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            <button type="submit" id="quick-view-btn">
+                                <a href="single-product.html">Quick View</a>
+                            </button>
+                        </div>
+                        <div id="list">
+                            <img src="image/hoodie.jpg" alt="" id="image" />
+                            <span>
+                                <h4 id="price">₹550/-</h4>
+                                <img src="image/wish.png" alt="" />
+                            </span>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            <button type="submit" id="quick-view-btn">
+                                <a href="single-product.html">Quick View</a>
+                            </button>
+                        </div>
+                        <div id="list">
+                            <img src="image/hoodie.jpg" alt="" id="image" />
+                            <span>
+                                <h4 id="price">₹550/-</h4>
+                                <img src="image/wish.png" alt="" />
+                            </span>
+
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+                            <button type="submit" id="quick-view-btn">
+                                <a href="single-product.html">Quick View</a>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+<script src="jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+<!-- <script>
+    document.querySelectorAll('.quick-view-btn').forEach(button => {
+        button.addEventListener('click', function(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get the parent div containing the product details
+            const productDiv = event.target.closest('#list');
+            
+            // Retrieve the data attributes
+            const price = productDiv.getAttribute('data-price');
+            const name = productDiv.getAttribute('data-name');
+
+            // Construct the URL with query parameters
+            const url = `single-product.html?price=${encodeURIComponent(price)}&name=${encodeURIComponent(name)}`;
+
+            // Redirect to the single-product.html page with the query parameters
+            window.location.href = url;
+        });
+    });
+</script> -->
+</html>
+
+
+

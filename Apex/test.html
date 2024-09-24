@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style>
+    .image-container {
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    overflow: hidden;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  </style>
+<body>
+  <div class="image-container">
+    <img src="image/hoodie.jpg" alt="Product Image" class="product-image">
+  </div>
+</body>
+  <script src="jquery-3.7.1.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const imageContainer = document.querySelector('.image-container');
+    const productImage = document.querySelector('.product-image');
+  
+    let isDragging = false;
+    let startX, startY;
+  
+    imageContainer.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        startX = e.pageX - imageContainer.offsetLeft;
+        startY = e.pageY - imageContainer.offsetTop;
+    });
+  
+    imageContainer.addEventListener('mouseleave', function() {
+        isDragging = false;
+    });
+  
+    imageContainer.addEventListener('mouseup', function() {
+        isDragging = false;
+    });
+  
+    imageContainer.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX - imageContainer.offsetLeft;
+        const y = e.pageY - imageContainer.offsetTop;
+        const zoomCenter = `${startX - x}px ${startY - y}px`;
+        productImage.style.transformOrigin = zoomCenter;
+        productImage.style.transform = `scale(1.5)`;
+    });
+  });
+  
+  </script>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="add.css">
+</head>
+<body>
+  <div id="main">
+    <div id="menubar">
+      <img src="image/logo.png" alt="" id="logo" />
+      <div class="cart">
+        <div class="number">0</div>
+        <a href="buy.html"><img src="image/cart.png" alt="" /></a>
+        <a href="login.html"><img src="image/user.png" alt="" /></a>
+      </div>
+    </div>
+    <div class="box">
+      <h1>Your Cart</h1>
+      <div class="list">
+        <h2>Item Name</h2>
+        <h2>Price</h2>
+        <h2>Total Price</h2>
+      </div>
+      <div class="item">
+        <div class="product">
+          <img alt="" id="product-image" />
+          <div class="detail">
+            <h3 id="product-name"></h3>
+            <p>Color: Pista</p>
+          </div>
+        </div>
+        <div class="price" id="product-price"></div>
+        <div class="counter">
+          <div class="minus">-</div>
+          <span class="val">1</span>
+          <div class="plus">+</div>
+        </div>
+        <div id="totalPrice">
+          <div class="total"></div>
+          <div id="discount">- ₹ 55.00</div>
+          <div id="delivery">₹ 0.00</div>
+          <div id="total"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Free Delivery Over ₹500/- </p>
+      <div id="tot"></div>
+      <a href="buy.html" id="check">Checkout</a>
+    </footer>
+  </div>
+<script src="jquery-3.7.1.min.js"></script>
+<!-- <script src="script.js"></script> -->
+<script>
+  
+$(document).ready(function() {
+    $(document).ready(function(){
+        // Function to get query parameters from URL
+        function getQueryParams() {
+          const params = new URLSearchParams(window.location.search);
+          return {
+            price: params.get('price'),
+            name: params.get('name'),
+            image: params.get('image')
+          };
+        }
+      
+        // Function to update total price
+        function updateTotalPrice() {
+          let quantity = parseInt($('.counter .val').text());
+          let price = parseInt($('#product-price').data('price'));
+          let discount = 55;
+          let delivery = 0;
+          let totalPrice = price * quantity;                              //product price
+          let finalPrice = totalPrice - 55
+          $('.total').text(`₹${totalPrice.toFixed(2)}`);
+          $('#total').text(`₹${finalPrice.toFixed(2)}`);
+        }
+      
+        // Function to update cart number
+        function updateCartNumber(change) {
+          let currentNumber = parseInt($('.cart .number').text());
+          let newNumber = currentNumber + change;
+          $('.cart .number').text(newNumber);
+        }
+      
+        // Common functionality for product pages
+        function setupProductPage() {
+          const { price, name, image } = getQueryParams();
+      
+          if (price && name && image) {
+            $('#product-image').attr('src', image);
+            $('#product-name').text(name);
+            $('#product-price').text(`₹${price}/-`).data('price', price);
+            updateTotalPrice();
+            updateCartNumber(0);
+          }
+      
+          // Event listener for plus and minus buttons
+          $('.counter .minus, .counter .plus').on('click', function() {
+            let valElement = $(this).siblings('.val');
+            let val = parseInt(valElement.text());
+      
+            if ($(this).hasClass('plus')) {
+              val++;
+            } else {
+              if (val > 1) val--;
+            }
+      
+            valElement.text(val);
+            updateTotalPrice();
+          });
+      
+          // Event listener for adding to cart
+          $('#add').on('click', function(event) {
+            event.preventDefault();
+            updateCartNumber(1);
+          });
+        }
+      
+        // Call setupProductPage() when the document is ready
+        setupProductPage();
+      });
+      
+      function calculateTotal() {
+    let total = 0;
+    document.querySelectorAll('.item').forEach(item => {
+      const price = parseFloat(item.querySelector('.price').innerText.replace('₹', ''));
+      const quantity = parseInt(item.querySelector('.val').innerText);
+      total += price * quantity;
+    });
+    return total.toFixed(2);
+  }
+
+  $("#tot").text(`₹${finalPrice.toFixed(2)}`);
+
+  document.getElementById('check').addEventListener('click', function() {
+    // const total = calculateTotal();
+    const total = finalPrice;
+    localStorage.setItem('total', total);
+    window.location.href = 'buy.html';
+  });
+
+
+});
+
+
+
+</script>
+</body>
+</html>

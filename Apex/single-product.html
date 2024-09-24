@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="single-product.css" />
+</head>
+
+<body>
+  <div id="main">
+    <div id="menubar">
+      <img src="image/logo.png" alt="" id="logo" />
+      <div class="cart">
+        <div class="number">0</div>
+        <a href="buy.html"><img src="image/cart.png" alt="" /></a>
+        <a href="login.html"><img src="image/user.png" alt="" /></a>
+      </div>
+    </div>
+    <div id="product">
+      <div id="product-img">
+        <div id="box" data-name="Pista Hoodie" data-price="550" data-image="image/hoodie.jpg">
+          <img src="image/hoodie.jpg" alt="" id="product-image" />
+          <img src="image/hoodie1.jpg" alt="" />
+          <img src="image/hoodie2.jpg" alt="" />
+          <img src="image/hoodie4.jpg" alt="" />
+        </div>
+        <div id="image"></div>
+      </div>
+      <div id="product-detail">
+        <p>Lorem, ipsum.</p>
+        <h1 id="product-name">Hoodie</h1>
+        <div id="color">
+          <div class="one"></div>
+          <div class="two"></div>
+          <div class="three"></div>
+        </div>
+        <div id="dis">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          voluptates sapiente cum corrupti amet vitae dolores libero,
+          perferendis at expedita.
+        </div>
+        <div id="size">
+          <button>S</button>
+          <button>M</button>
+          <button>L</button>
+          <button>X</button>
+          <button>XL</button>
+        </div>
+        <div id="price">₹550.00</div>
+        <div id="action">
+          <a href="buy.html" id="buy">Buy Now</a>
+          <a href="#" id="add">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const imageContainer = $("#box");
+      const imagePreview = $("#image");
+      imagePreview.hide();
+
+      $(window).on("load", function () {
+        imageContainer.find("img").first().trigger("mouseover");
+      });
+
+      imageContainer.find("img").on("mouseover", function () {
+        const hoveredImage = $(this);
+        imagePreview.empty();
+        const previewImage = hoveredImage.clone();
+        imagePreview.append(previewImage);
+        const imageOffset = hoveredImage.offset();
+        const containerOffset = imageContainer.offset();
+        imagePreview.css({
+          top: imageOffset.top - containerOffset.top + hoveredImage.height(),
+          left: imageOffset.left - containerOffset.left,
+        });
+        imagePreview.fadeIn();
+      });
+
+      imageContainer.on("mouseenter", function () {
+        imagePreview.show().fadeIn();
+      });
+
+      $("#add").on("click", function (event) {
+        event.preventDefault();
+        const price = imageContainer.data("price");
+        const name = imageContainer.data("name");
+        const image = imageContainer.data("image");
+        const url = `add.html?price=${encodeURIComponent(
+          price
+        )}&name=${encodeURIComponent(name)}&image=${encodeURIComponent(
+          image
+        )}`;
+        window.location.href = url;
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var boxImage = document.getElementById("product-image"); // Primary image
+        var imageDiv = document.getElementById("image"); // Div where the zoom effect will be applied
+
+        // Function to handle mousemove event
+        function handleMouseMove(e) {
+          var rect = imageDiv.getBoundingClientRect();
+          var x = e.clientX - rect.left; // x position within the element.
+          var y = e.clientY - rect.top; // y position within the element.
+
+          // Calculate the new scale factor based on cursor position
+          var scaleFactor = Math.max(
+            Math.min((x / rect.width) * 10 + 1, 2),
+            1
+          ); // Scale between 1 and 2
+
+          // Apply the zoom effect
+          if (!boxImage.classList.contains("zoomed")) {
+            boxImage.style.transform = `scale(${scaleFactor})`;
+            boxImage.classList.add("zoomed");
+          }
+        }
+
+        // Listen for mousemove events on the #image div
+        imageDiv.addEventListener("mousemove", handleMouseMove);
+
+        // Remove the zoom effect after moving the cursor away
+        imageDiv.onmouseleave = function () {
+          boxImage.style.transform = "";
+          boxImage.classList.remove("zoomed");
+        };
+      });
+    });
+  </script>
+</body>
+
+</html>

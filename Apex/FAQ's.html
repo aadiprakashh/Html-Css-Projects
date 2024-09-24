@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Men's Fashion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  :root {
+    --bla: #020d19;
+    --grey: #cdcdcd;
+    --red: #da5a5a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Mukta", sans-serif;
+}
+
+#main {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bla);
+}
+
+#menubar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    left: 10%;
+}
+
+#logo {
+    width: 15%;
+}
+
+#menu {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    /* background: red; */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#menu a {
+    color: white;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#menu .active {
+    border-bottom: 2px solid red;
+}
+
+#menu a:hover {
+    border-bottom: 2px solid red;
+}
+
+#menubar #search {
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+    width: 300px;
+}
+
+input::placeholder {
+    padding-left: 10px;
+}
+
+.cart {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cart img {
+    width: 100%;
+}
+
+.number {
+    position: relative;
+    top: -25px;
+    left: 50px;
+    color: red;
+    /* padding:1px 10px; */
+    border-radius: 100%;
+    font-weight: 800;
+}
+#faq{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+  width: 100%;
+  text-align: center;
+  color: red;
+}
+.faq-item{
+  width: 700px;
+  position: relative;
+  top: 70px;
+}
+.faq-item h2{
+  background:rgba(255,255,255,0.1);
+backdrop-filter:blur(1px);
+border-radius:10px;
+padding:7px 10px;
+color: rgba(255, 255, 255, 0.566);
+}
+.faq-item p{
+  color: grey;
+  padding:10px;
+}
+</style>
+<body>
+  <div id="main">
+    <div id="menubar">
+      <img src="image/logo.png" alt="" id="logo" />
+      <div id="menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <!-- <a href="product.html">Product</a>
+        <a href="category.html">Category</a> -->
+        <a href="FAQ's.html" class="active">FAQ's</a>
+      </div>
+      <input type="search" id="search" placeholder="Search entirely" />
+      <div class="cart">
+        <div class="number">0</div>
+        <a href="buy.html"><img src="image/cart.png" alt="" /></a>
+        <a href="login.html"><img src="image/user.png" alt="" /></a>
+      </div>
+    </div>
+    <div id="faq">
+      <h1>Frequently Asked Questions</h1>
+      <div class="faq-item">
+        <h2>What is your return policy?</h2>
+        <p>We offer a 30-day return policy from the date of purchase. Items must be in their original condition with tags attached.</p>
+        <h2>Do you offer international shipping?</h2>
+        <p>Yes, we ship internationally. Shipping fees and delivery times vary depending on the destination.</p>
+      
+        <h2>How can I track my order?</h2>
+        <p>Once your order is shipped, we will send you a tracking number via email. You can use this number to track your order on our website.</p>
+
+        <h2>How can I contact customer service?</h2>
+        <p>You can contact our customer service team via email at support@mensfashion.com or call us at 1-800-123-4567.</p>
+
+        <h2>Can I change or cancel my order?</h2>
+        <p>You can change or cancel your order within 24 hours of placing it. Please contact our customer service team as soon as possible to request changes or cancellations.</p>
+      
+        <h2>Do you offer gift wrapping?</h2>
+        <p>Yes, we offer gift wrapping for an additional fee. You can select the gift wrapping option at checkout.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2024 Men's Fashion. All rights reserved.</p>
+  </footer>
+
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script>
+    $( function() {
+    $( ".faq-item" ).accordion();
+  } );
+  </script>
+</body>
+</html>

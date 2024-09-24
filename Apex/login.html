@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="login.css"> -->
+  </head>
+  <style>
+    :root {
+      --bla: #020d19;
+      --grey: #cdcdcd;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: "Mukta", sans-serif;
+      box-sizing: border-box;
+    }
+    body,
+    html {
+      height: 100%;
+      font-family: "Mukta", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background: linear-gradient(to right, #ff4b2b, #ff416c); */
+      background-color: #020d19;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+    }
+
+    .login-box {
+      background-color: #cdcdcd;
+      padding: 40px;
+      border-radius: 10px;
+      /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+      text-align: center;
+      width: 300px;
+    }
+
+    .login-box h1 {
+      margin-bottom: 30px;
+      font-family: "DM Serif Text", serif;
+    }
+
+    .textbox {
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    .textbox input {
+      width: 100%;
+      padding: 10px;
+      background: #f0f0f0;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn {
+      width: 100%;
+      background: #ff4b2b;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ff416c;
+    }
+
+    .bottom-text {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .bottom-text a {
+      color: #ff416c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .bottom-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="login-box">
+        <h1>Login</h1>
+        <form action="#">
+          <div class="textbox">
+            <input
+              type="text"
+              placeholder="Username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="textbox">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+          </div>
+          <button class="btn" type="submit">Login</button>
+          <div class="bottom-text">
+            <p>Don't have an account? <a href="register.html">Sign up</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
