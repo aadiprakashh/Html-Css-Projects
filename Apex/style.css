@@ -11,19 +11,6 @@
     font-family: "Mukta", sans-serif;
     box-sizing: border-box;
 }
-:root {
-    --whi: white;
-    --bla: #020d19;
-    --nav: navy;
-    --gol: gold;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "Mukta", sans-serif;
-    box-sizing: border-box;
-}
 
 body {
     overflow: hidden;
@@ -248,7 +235,10 @@ input::placeholder {
 }
 
 #intro-img {
-    background: linear-gradient(to top, #000000d2 0%, transparent), url('image/exclusive.jpg');
+    background: linear-gradient(to top, #000000d2 0%, transparent)
+    /* ,  */
+    /* url('image/exclusive.jpg') */
+    ;
     width: 400px;
     height: 500px;
     background-position: center;
@@ -258,7 +248,9 @@ input::placeholder {
     top: 70px;
     right: 100px;
 }
-
+#intro-img img{
+    border-radius: 20px 20px 0 0;
+}
 .intro h2 {
     color: white;
     font-family: "DM Serif Text", serif;
