@@ -1,0 +1,57 @@
+:root {
+    --Primary: #333333;  
+    --Accent: #FF8C00; 
+    --Background: #F5F5DC; 
+    --Highlight: #8FBC8F; 
+    --h1: "Grandstander", cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: transparent;
+}
+#home{
+    /* background:linear-gradient(to right, rgba(0, 0, 0, 0.875) 0%, transparent), url(image/tiger.jpg) ;
+    background-position:center ;
+    background-size: cover; */
+    width: 100%;
+    height: 100vh;
+    background-color: var(--Primary);
+}
+.hero{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.hero h1{
+font-family: var(--h1);
+}
+.hero-img{
+    width: 100%;
+    aspect-ratio: 3/3;
+    -webkit-mask-image: url(image/splash-round.png);
+    -webkit-mask-size:cover;
+}
+.menubar{
+    border-radius: 10px;
+    padding:10px;
+}
+.logo {
+    width: 150px;
+}
+.menu{
+    display: flex;
+    gap: 25px;
+}
+.menu a{
+    border-bottom: 2px solid transparent;
+        color: var(--Background) !important;
+}
+ .menu a:hover, .menu .active{
+    border-bottom: 2px solid var(--Accent);
+}
